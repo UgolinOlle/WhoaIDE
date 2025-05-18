@@ -14,6 +14,19 @@ return {
     local active, lint = pcall(require, "lint")
     if not active then return end
 
+    -- Déclaration manuelle du linter taplo
+    lint.linters.taplo = {
+      cmd = "taplo",
+      stdin = false,
+      args = { "lint", "--no-config" },
+      stream = "stdout",
+      ignore_exitcode = true,
+      parser = require("lint.parser").from_errorformat([[%f:%l:%c %m]], {
+        source = "taplo",
+        severity = vim.diagnostic.severity.WARN,
+      }),
+    }
+
     -- Configure linters by filetype
     lint.linters_by_ft = {
       -- TypeScript & JavaScript
