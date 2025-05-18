@@ -9,7 +9,6 @@ return {
 
   dependencies = {
     { "MunifTanjim/nui.nvim", name = "Nui", lazy = true },
-    { "rcarriga/nvim-notify", name = "Nvim Notify", lazy = true },
   },
 
   event = "VeryLazy",

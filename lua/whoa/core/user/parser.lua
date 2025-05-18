@@ -31,7 +31,6 @@ function M.ft_uparser()
           vim.o[key] = value
         end
       end
-      notify("User config loaded successfully", vim.log.levels.INFO)
     else
       notify("Error loading user config: " .. (user_config or "Invalid config format"), vim.log.levels.ERROR)
     end

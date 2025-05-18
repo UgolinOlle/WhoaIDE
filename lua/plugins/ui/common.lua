@@ -97,11 +97,9 @@ return {
   {
     "rcarriga/nvim-notify",
 
-    name = "Notify",
+    name = "Nvim Notify",
 
     event = "VeryLazy",
-
-    config = function() vim.notify = require "notify" end,
 
     opts = {
       timeout = 100,
@@ -109,7 +107,15 @@ return {
       top_down = true,
       render = "default",
       fps = 120,
+      background_colour = "#000000",
     },
+
+    config = function(_, opts)
+      vim.notify = require "notify"
+      require("notify").setup(vim.tbl_extend("keep", {
+        background_colour = "#000000",
+      }, opts))
+    end,
 
     keys = {
       {
