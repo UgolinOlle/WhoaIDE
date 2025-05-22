@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./.github/assets/WHOA - Cover white version.png" alt="Whoa IDE Banner">
+    <img src="./.github/assets/banner.png" alt="Whoa IDE Banner">
 </p>
 
 # WhoaIDE
