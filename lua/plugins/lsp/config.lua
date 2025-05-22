@@ -149,6 +149,16 @@ return {
       }
     end
 
+    -- biome
+    lspconfig["biome"].setup {
+      default_config = {
+        cmd = { "biome", "lsp-proxy" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" },
+        root_dir = lspconfig.util.root_pattern("biome.json", "package.json", ".git"),
+        single_file_support = true,
+      },
+    }
+
     -- lua_ls
     lspconfig["lua_ls"].setup {
       capabilities = capabilities,
