@@ -2,9 +2,7 @@
     <img src="./.github/assets/banner.png" alt="Whoa IDE Banner">
 </p>
 
-# WhoaIDE
-
-## 💻・Whoa IDE
+## 💻・Getting Started
 
 Welcome to Whoa IDE, a robust and customizable integrated development environment based on Neovim. Elevate your coding experience with a feature-rich environment tailored to your needs.
 
