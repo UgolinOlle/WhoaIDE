@@ -42,7 +42,7 @@ Contributions to the Whoa IDE project are welcome. If you encounter any issues o
 
 ## 📑・License
 
-This project is licensed under the [MIT License](#) - see the LICENSE file for details.
+This project is licensed under the [MIT License](./LICENSE) - see the LICENSE file for details.
 
 ## 📩・Contact
 

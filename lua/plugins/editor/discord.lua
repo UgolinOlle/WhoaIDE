@@ -1,13 +1,14 @@
 return {
-  "IogaMaster/neocord",
+    "IogaMaster/neocord",
 
-  name = "Neocord",
+    name = "Neocord",
 
-  event = "VeryLazy",
+    event = "VeryLazy",
 
-  config = function()
-    require("neocord").setup {
-      client_id = "1287732244835733576",
-    }
-  end,
+    -- Plugin configuration
+    config = function()
+        require("neocord").setup {
+            client_id = "1287732244835733576"
+        }
+    end
 }

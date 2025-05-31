@@ -1,13 +1,17 @@
 return {
-  "hedyhli/outline.nvim",
+    "hedyhli/outline.nvim",
+    name = "Outline",
+    event = "BufReadPre",
 
-  name = "Outline",
+    -- Plugin configuration
+    config = function()
+        require("outline").setup {}
+    end,
 
-  event = "BufReadPre",
-
-  config = function() require("outline").setup {} end,
-
-  keys = {
-    { "<LEADER>o", "<CMD>Outline<CR>", { noremap = true, silent = true, desc = "Toggle Outline" } },
-  },
+    -- Key mappings
+    keys = {{"<LEADER>o", "<CMD>Outline<CR>", {
+        noremap = true,
+        silent = true,
+        desc = "Toggle Outline"
+    }}}
 }

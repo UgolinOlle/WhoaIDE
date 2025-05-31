@@ -1,34 +1,28 @@
 return {
-  "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    name = "Copilot",
+    event = "InsertEnter",
 
-  name = "Copilot",
-
-  cmd = "Copilot",
-
-  event = "InsertEnter",
-
-  config = function()
-    local active, copilot = pcall(require, "copilot")
-    if not active then return end
-
-    copilot.setup {
-      layout = {
-        position = "bottom",
-        ratio = 0.4,
-      },
-
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-
-        keymap = {
-          accept = "<TAB>",
-          accept_line = "<S-TAB>",
-          next = "<C-]>",
-          prev = "<C-[>",
-          dimiss = "<ESC>",
+    -- Plugin options
+    opts = {
+        suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            keymap = {
+                accept = "<TAB>",
+                accept_line = "<S-TAB>",
+                next = "<C-]>",
+                prev = "<C-[>",
+                dismiss = "<ESC>"
+            }
         },
-      },
-    }
-  end,
+        panel = {
+            enabled = false
+        }
+    },
+
+    -- Plugin configuration
+    config = function(_, opts)
+        require("copilot").setup(opts)
+    end
 }

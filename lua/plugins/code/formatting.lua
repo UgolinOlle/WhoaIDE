@@ -1,81 +1,80 @@
 return {
-  "stevearc/conform.nvim",
+    "stevearc/conform.nvim",
 
-  name = "Conform",
+    name = "Conform",
 
-  event = { "BufReadPre", "BufNewFile" },
+    event = {"BufReadPre", "BufNewFile"},
 
-  dependencies = {
-    "williamboman/mason.nvim",
-  },
+    dependencies = {"williamboman/mason.nvim"},
 
-  config = function()
-    -- Check if Conform is active
-    local active, conform = pcall(require, "conform")
-    if not active then return end
+    -- List of formatters to ensure are installed via Mason
+    formatters_to_install = {"prettier", "stylua", "shfmt", "swiftformat", "sql_formatter"},
 
-    -- Setup Conform
-    conform.setup {
-      formatters_by_ft = {
-        -- TypeScript & JavaScript
-        typescript = { "prettier" },
-        javascript = { "prettier" },
-        typescriptreact = { "prettier" },
-        javascriptreact = { "prettier" },
+    config = function(self)
+        -- Check if Conform is active
+        local active, conform = pcall(require, "conform")
+        if not active then
+            return
+        end
 
-        -- CSS & HTML
-        css = { "prettier" },
-        html = { "prettier" },
+        -- Setup Conform
+        conform.setup {
+            formatters_by_ft = {
+                -- TypeScript & JavaScript
+                typescript = {"prettier"},
+                javascript = {"prettier"},
+                typescriptreact = {"prettier"},
+                javascriptreact = {"prettier"},
 
-        -- JSON
-        json = { "prettier" },
+                -- CSS & HTML
+                css = {"prettier"},
+                html = {"prettier"},
 
-        -- Lua
-        lua = { "stylua" },
+                -- JSON
+                json = {"prettier"},
 
-        -- Markdown
-        markdown = { "prettier" },
+                -- Lua
+                lua = {"stylua"},
 
-        -- Shell & Bash
-        sh = { "shfmt" },
-        bash = { "shfmt" },
+                -- Markdown
+                markdown = {"prettier"},
 
-        -- Swift
-        swift = { "swiftformat" },
+                -- Shell & Bash
+                sh = {"shfmt"},
+                bash = {"shfmt"},
 
-        -- Other languages
-        yaml = { "prettier" }, -- YAML
-        toml = { "prettier" }, -- TOML
-        sql = { "sql_formatter" }, -- SQL
-      },
+                -- Swift
+                swift = {"swiftformat"},
 
-      -- Automatically format on save
-      format_on_save = {
-        lsp_fallback = true,
-        timeout_ms = 2500,
-      },
-    }
+                -- Other languages
+                yaml = {"prettier"},
+                toml = {"prettier"},
+                sql = {"sql_formatter"}
+            },
 
-    -- Check if Mason registry is active & install formatters
-    local mason_active, mason_registry = pcall(require, "mason-registry")
-    if mason_active then
-      local tools = {
-        "prettier",
-        "stylua",
-        "shfmt",
-      }
-      for _, tool in ipairs(tools) do
-        local p = mason_registry.get_package(tool)
-        if not p:is_installed() then p:install() end
-      end
-    end
-  end,
+            -- Automatically format on save
+            format_on_save = {
+                lsp_fallback = true,
+                timeout_ms = 2500
+            }
+        }
 
-  keys = {
-    {
-      "<LEADER>ci",
-      "<CMD>ConformInfo<CR>",
-      { noremap = true, silent = true, desc = "Show informations about Conform" },
-    },
-  },
+        -- Ensure formatters are installed via Mason
+        local mason_active, mason_registry = pcall(require, "mason-registry")
+        if mason_active then
+            for _, tool in ipairs(self.formatters_to_install) do
+                local ok, p = pcall(mason_registry.get_package, tool)
+                if ok and not p:is_installed() then
+                    p:install()
+                end
+            end
+        end
+    end,
+
+    -- Key mappings
+    keys = {{"<LEADER>ci", "<CMD>ConformInfo<CR>", {
+        noremap = true,
+        silent = true,
+        desc = "Show informations about Conform"
+    }}}
 }

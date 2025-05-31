@@ -1,71 +1,75 @@
-return {
-  {
+return { -- Icon Picker: Insert and yank NerdFont icons
+{
     "ziontee113/icon-picker.nvim",
-
     name = "Icon Picker",
-
     lazy = true,
-
-    config = function() require("icon-picker").setup { disable_legacy_commands = true } end,
-
-    keys = {
-      { "<C-i>", "<CMD>IconPickerInsert<CR>", { noremap = true, silent = true, desc = "Open icon picker" } },
-      { "<LEADER>y", "<CMD>IconPickerYank<CR>", { noremap = true, silent = true, desc = "Yank icon" } },
-      { "<LEADER>i", "<CMD>IconPickerNormal<CR>", { noremap = true, silent = true, desc = "Normal icon picker" } },
-    },
-  },
-  {
-    "nvim-lua/plenary.nvim",
-
-    name = "Plenary",
-
-    lazy = false,
-  },
-  {
-    "windwp/nvim-autopairs",
-
-    name = "Auto Pairs",
-
-    event = "InsertEnter",
-
     opts = {
-      check_ts = true,
-      ts_config = { java = false },
+        disable_legacy_commands = true
     },
-  },
-  {
+    keys = {{
+        "<C-i>",
+        "<CMD>IconPickerInsert<CR>",
+        desc = "Open icon picker",
+        noremap = true,
+        silent = true
+    }, {
+        "<LEADER>y",
+        "<CMD>IconPickerYank<CR>",
+        desc = "Yank icon",
+        noremap = true,
+        silent = true
+    }, {
+        "<LEADER>i",
+        "<CMD>IconPickerNormal<CR>",
+        desc = "Normal icon picker",
+        noremap = true,
+        silent = true
+    }}
+}, -- Plenary: Lua utility functions (required by many plugins)
+{
+    "nvim-lua/plenary.nvim",
+    name = "Plenary",
+    lazy = false
+}, -- Auto Pairs: Automatic closing of brackets, quotes, etc.
+{
+    "windwp/nvim-autopairs",
+    name = "Auto Pairs",
+    event = "InsertEnter",
+    opts = {
+        check_ts = true,
+        ts_config = {
+            java = false
+        }
+    }
+}, -- Comment.nvim: Quick commenting, with Treesitter context support
+{
     "numToStr/Comment.nvim",
-
     name = "Comment",
-
     event = "BufReadPre",
-
     opts = function()
-      local comment_string_active, comment_string = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
-      if not comment_string_active then return end
-
-      return comment_string_active and comment_string and { pre_hook = comment_string.create_pre_hook() } or {}
-    end,
-  },
-  {
+        local ok, comment_string = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+        return ok and comment_string and {
+            pre_hook = comment_string.create_pre_hook()
+        } or {}
+    end
+}, -- Render Markdown: Markdown preview in Neovim
+{
     "MeanderingProgrammer/render-markdown.nvim",
-
-    name = "Render Markwdown",
-
+    name = "Render Markdown",
     lazy = true,
-
-    dependencies = {
-      { "nvim-treesitter/nvim-treesitter", name = "Nvim Treesitter", lazy = true },
-      { "nvim-tree/nvim-web-devicons", name = "Web DevIcons", lazy = true },
-    },
-
+    dependencies = {{
+        "nvim-treesitter/nvim-treesitter",
+        name = "Nvim Treesitter",
+        lazy = true
+    }, {
+        "nvim-tree/nvim-web-devicons",
+        name = "Web DevIcons",
+        lazy = true
+    }}
     -- ft = { "markdown", "Avante" },
-  },
-  {
+}, -- Align: Text alignment for code and tables
+{
     "RRethy/nvim-align",
-
     name = "Align",
-
-    event = "BufReadPre",
-  },
-}
+    event = "BufReadPre"
+}}
