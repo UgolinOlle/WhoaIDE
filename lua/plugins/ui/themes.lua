@@ -9,6 +9,29 @@ return {
     lazy = false,
   },
   {
+    "tiesen243/vercel.nvim",
+    name = "Vercel Theme",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("vercel").setup {
+        theme = vim.o.background == "dark" and "dark" or "light",
+        transparent = false,
+        italics = {
+          comments = true,
+          keywords = true,
+          functions = true,
+          strings = true,
+          variables = true,
+          bufferline = false,
+        },
+        overrides = {},
+      }
+
+      vim.cmd.colorscheme "vercel"
+    end,
+  },
+  {
     "projekt0n/github-nvim-theme",
 
     name = "GitHub Theme",
@@ -18,12 +41,12 @@ return {
     priority = 1000,
 
     config = function()
-      require('github-theme').setup({
+      require("github-theme").setup {
         options = {
           transparent = true,
-        }
-      })
-    end
+        },
+      }
+    end,
   },
   {
     "craftzdog/solarized-osaka.nvim",
@@ -54,5 +77,5 @@ return {
         transparent = true,
       }
     end,
-  }
+  },
 }

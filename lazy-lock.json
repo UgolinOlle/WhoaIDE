@@ -73,6 +73,7 @@
   "Todo Comments": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "Toggle Terminal": { "branch": "main", "commit": "e76134e682c1a866e3dfcdaeb691eb7b01068668" },
   "VSCode": { "branch": "main", "commit": "cb9df0873c10a21d05362455ae3bb355eadcef6b" },
+  "Vercel Theme": { "branch": "main", "commit": "282aa2a8973a53a06ed355db8ab25bf4858f3177" },
   "Wakatime": { "branch": "master", "commit": "3403495670f0ee08887401a28f8430dc4ac67429" },
   "Web Devicons": { "branch": "master", "commit": "3362099de3368aa620a8105b19ed04c2053e38c0" },
   "WhichKey": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },

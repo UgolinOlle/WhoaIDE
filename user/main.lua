@@ -1,3 +1,3 @@
 return {
-  colorscheme = "vscode",
+  colorscheme = 'vercel'
 }

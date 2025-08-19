@@ -66,7 +66,7 @@ return {
     options = {
       icons_enabled = true,
       always_divide_middle = true,
-      theme = "vscode",
+      theme = "vercel",
       component_separators = " ",
       section_separators = " ",
     },
