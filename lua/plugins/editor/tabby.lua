@@ -1,13 +1,11 @@
 return {
     "nanozuki/tabby.nvim",
     name = "Tabby",
-    lazy = false,
+    event = "VimEnter",
 
     -- Plugin dependencies
     dependencies = {
-        "nvim-lualine/lualine.nvim",
-        name = "Lualine",
-        lazy = true
+        "nvim-lualine/lualine.nvim"
     },
 
     -- Plugin configuration

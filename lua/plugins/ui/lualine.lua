@@ -10,6 +10,37 @@ return {
   config = function(_, opts)
     -- Variables
     local get_icons = require("whoa.core.utils").get_icons
+    local vercel_colors = require("vercel.colors").getColors(vim.o.background)
+
+    -- Create custom smooth Vercel theme for lualine
+    local vercel_theme = {
+      normal = {
+        a = { fg = vercel_colors.background, bg = vercel_colors.blue },
+        b = { fg = vercel_colors.blue, bg = vercel_colors.popup },
+        c = { fg = vercel_colors.foreground, bg = "NONE" },
+      },
+      insert = {
+        a = { fg = vercel_colors.background, bg = vercel_colors.green },
+        b = { fg = vercel_colors.green, bg = vercel_colors.popup },
+      },
+      visual = {
+        a = { fg = vercel_colors.background, bg = vercel_colors.purple },
+        b = { fg = vercel_colors.purple, bg = vercel_colors.popup },
+      },
+      command = {
+        a = { fg = vercel_colors.background, bg = vercel_colors.orange },
+        b = { fg = vercel_colors.orange, bg = vercel_colors.popup },
+      },
+      replace = {
+        a = { fg = vercel_colors.background, bg = vercel_colors.red },
+        b = { fg = vercel_colors.red, bg = vercel_colors.popup },
+      },
+      inactive = {
+        a = { fg = vercel_colors.secondary, bg = "NONE" },
+        b = { fg = vercel_colors.secondary, bg = "NONE" },
+        c = { fg = vercel_colors.secondary, bg = "NONE" },
+      },
+    }
     local mode_icons = {
       ["n"] = get_icons "Normal" .. " ",
       ["i"] = get_icons "Insert" .. " ",
@@ -51,14 +82,17 @@ return {
     end
 
     opts.sections = {
-      lualine_a = { { mode, separator = { left = "", right = "", padding_right = 1 } } },
-      lualine_b = { "branch", "diff" },
-      lualine_c = { filename, diagnostics },
-      lualine_x = { { getWords, right_padding = 1 }, "encoding", "filetype" },
-      lualine_y = { "progress" },
-      lualine_z = {},
+      lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+      lualine_b = { "filename", "branch" },
+      lualine_c = { "%=" },
+      lualine_x = {},
+      lualine_y = { { getWords, right_padding = 1 }, "encoding", "filetype" },
+      lualine_z = {
+        { "location", separator = { right = "" }, left_padding = 2 },
+      },
     }
 
+    opts.options.theme = vercel_theme
     require("lualine").setup(opts)
   end,
 
@@ -66,9 +100,9 @@ return {
     options = {
       icons_enabled = true,
       always_divide_middle = true,
-      theme = "vercel",
-      component_separators = " ",
-      section_separators = " ",
+      component_separators = "",
+      section_separators = { left = "", right = "" },
+      globalstatus = true,
     },
   },
 }

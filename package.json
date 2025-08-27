@@ -1,0 +1,22 @@
+{
+  "name": "nvim-config",
+  "version": "1.0.0",
+  "description": "Neovim configuration with husky git hooks",
+  "scripts": {
+    "prepare": "husky install",
+    "lint:lua": "luacheck . --config luacheckrc",
+    "format:lua": "stylua ."
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "*.lua": [
+      "stylua",
+      "luacheck --config luacheckrc"
+    ]
+  }
+}

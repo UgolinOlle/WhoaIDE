@@ -3,5 +3,5 @@ return {
 
   name = "Wakatime",
 
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 }

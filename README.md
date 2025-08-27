@@ -2,48 +2,261 @@
     <img src="./.github/assets/banner.png" alt="Whoa IDE Banner">
 </p>
 
-## 💻・Getting Started
+<h1 align="center">🚀 Whoa IDE</h1>
 
-Welcome to Whoa IDE, a robust and customizable integrated development environment based on Neovim. Elevate your coding experience with a feature-rich environment tailored to your needs.
+<p align="center">
+    <em>A modern, feature-rich Neovim configuration built for productivity and performance</em>
+</p>
 
-**Features:**
+<p align="center">
+    <img alt="Neovim" src="https://img.shields.io/badge/Neovim-0.9+-57A143?style=for-the-badge&logo=neovim&logoColor=white">
+    <img alt="Lua" src="https://img.shields.io/badge/Lua-5.1+-2C2D72?style=for-the-badge&logo=lua&logoColor=white">
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge">
+</p>
 
-- **Plugin Manager:** Utilize a plugin manager such as Vim-Plug or Dein for easy installation and management of plugins.
+---
 
-- **Intelligent Auto-completion:** Integrate intelligent auto-completion plugins like CoC (Conquer of Completion) or YouCompleteMe for faster and smarter code input.
+## ✨ Features
 
-- **LSP Support (Language Server Protocol):** Add LSP support for features such as code navigation, refactoring, and real-time error detection.
+### 🎨 **Modern UI & Themes**
+- **Multiple Theme Options**: GitHub, Solarized Osaka, VSCode, Vercel themes
+- **Smart Status Line**: Lualine with custom configurations
+- **File Tree**: Neo-tree with advanced file management
+- **Tabline**: Tabby for elegant tab management
+- **Notification System**: Noice for enhanced UI notifications
+- **Icon Support**: Web devicons and Nerdfont integration
 
-- **Advanced Syntax Highlighting:** Enhance syntax highlighting with plugins like vim-polyglot or treesitter for better language support.
+### 🧠 **Intelligent Code Assistance**
+- **LSP Integration**: Full Language Server Protocol support via nvim-lspconfig
+- **Auto-completion**: Comprehensive completion with nvim-cmp
+  - Buffer completion
+- Path completion
+  - LSP completion
+  - LuaSnip integration
+  - Emoji and Nerdfont support
+  - Treesitter completion
+- **AI-Powered Coding**: GitHub Copilot and Avante.nvim integration
+- **Code Formatting**: Conform.nvim for consistent code style
+- **Linting**: nvim-lint for real-time code analysis
 
-- **File Manager Integration:** Integrate a file manager such as NERDTree or Ranger for seamless project navigation.
+### 🔍 **Advanced Search & Navigation**
+- **Telescope**: Fuzzy finder with multiple extensions
+  - File finder with exclusions
+  - Live grep with ripgrep
+  - Node modules search
+  - Symbol search
+  - Software licenses
+- **Harpoon**: Quick file navigation
+- **Outline**: Symbol outline for code structure
+- **GrugFar**: Advanced find and replace
+- **Dropbar**: Breadcrumb navigation
 
-- **Integrated Terminal:** Use the integrated Neovim terminal to execute commands without leaving the editor.
+### 🛠️ **Developer Tools**
+- **Git Integration**: 
+  - Fugit2 for Git operations
+  - GitSigns for inline git info
+  - Git blame and diff view
+  - TinyGit for streamlined workflows
+- **Terminal**: Integrated terminal with ToggleTerm
+- **Debugging**: Built-in debugging capabilities
+- **Documentation**: DevDocs integration
+- **Todo Management**: Todo-comments for project todos
+- **Markdown Support**: Enhanced markdown editing and preview
 
-- **Enhanced Search and Replace:** Add advanced search capabilities with plugins like The Silver Searcher (Ag) or Ripgrep (rg).
+### ⚡ **Performance & Productivity**
+- **Lazy Loading**: Lazy.nvim plugin manager for fast startup
+- **Treesitter**: Advanced syntax highlighting and code understanding
+- **Autopairs**: Intelligent bracket pairing
+- **Surround**: Easy text surrounding operations
+- **Comment**: Smart commenting system
+- **Which-Key**: Interactive keybinding helper
+- **Garbage Collection**: Optimized memory management
+- **Custom Features**:
+  - Autosave functionality
+  - LSP diagnostics
+  - Highlight on yank
+  - Spell check for Markdown
 
-- **Git Management:** Integrate Git tools directly into Neovim with plugins like vim-fugitive or vim-gitgutter.
+### 🎮 **Gaming & Fun**
+- **Discord Integration**: Rich presence with Neocord
+- **Hack The Box**: CTF and security challenges integration
+- **WakaTime**: Coding time tracking
+- **Zen Mode**: Distraction-free coding
 
-- **Code Snippets:** Utilize a snippet manager like UltiSnips to store and quickly insert reusable code snippets.
+## 🚀 Installation
 
-- **Themes and Customization:** Explore various themes and customization options to make your development environment visually appealing.
+### Prerequisites
+- **Neovim 0.9.1+** 
+- **Git**
+- **Node.js** (for LSP servers)
+- **Ripgrep** (for telescope live grep)
+- **A Nerd Font** (for icons)
 
-- **Integrated Debugger:** Integrate a debugger into Neovim for an enhanced debugging experience, using plugins like vimspector.
+### Quick Install
+```bash
+# Backup existing configuration
+mv ~/.config/nvim ~/.config/nvim.backup
 
-- **Markdown Support:** Improve Markdown file editing with plugins for previewing and other Markdown-specific features.
+# Clone Whoa IDE
+git clone https://github.com/your-username/whoa-ide ~/.config/nvim
 
-- **Customizable Status Bar:** Use plugins like vim-airline or lightline to customize the status bar of Neovim.
+# Start Neovim - plugins will install automatically
+nvim
+```
 
-- **Multilingual Support:** Ensure Neovim supports diverse character sets and languages, especially for non-Latin character programming.
+## 🔧 Configuration
 
-## 🧑‍🤝‍🧑・Contributing
+### Core Structure
+```
+~/.config/nvim/
+├── init.lua                 # Entry point
+├── lazy-lock.json          # Plugin versions lock file
+├── lua/
+│   ├── plugins/            # Plugin configurations
+│   │   ├── code/          # Coding-related plugins
+│   │   ├── editor/        # Editor enhancements
+│   │   ├── lsp/           # Language server configs
+│   │   └── ui/            # UI and theme plugins
+│   ├── snippets/          # Custom snippets
+│   └── whoa/              # Core Whoa IDE modules
+│       ├── commands.lua   # Custom commands
+│       ├── configs/       # Feature configurations
+│       ├── core/          # Core functionality
+│       ├── lazy.lua       # Plugin manager setup
+│       ├── mappings.lua   # Key mappings
+│       └── options.lua    # Neovim options
+└── user/                  # User-specific configs
+    └── main.lua           # User customizations
+```
 
-Contributions to the Whoa IDE project are welcome. If you encounter any issues or wish to improve the code, feel free to open a pull request or issue.
+### Customization
 
-## 📑・License
+#### User Configuration
+Create or modify `user/main.lua` to customize your setup:
 
-This project is licensed under the [MIT License](./LICENSE) - see the LICENSE file for details.
+```lua
+-- user/main.lua
+return {
+  -- Your custom configurations
+  theme = "github_dark",
+  features = {
+    autosave = true,
+    spell_check = true,
+  },
+  -- Custom keymaps
+  keymaps = {},
+}
+```
 
-## 📩・Contact
+#### Features Toggle
+Modify `lua/whoa/configs/features.lua`:
 
-For any questions or collaboration, don't hesitate to contact us via [email](mailto:hello@ugolin-olle.com) or [LinkedIn](https://linkedin.com/in/ugolin-olle).
+```lua
+return {
+  Autosave = true,                    -- Auto-save files
+  LSP_Diagnostics = true,            -- Show LSP diagnostics
+  Highlight_on_Yank = true,          -- Highlight yanked text
+  Spell_Check_for_Markdown = true,   -- Spell check in markdown
+}
+```
+
+## 📦 Plugin Management
+
+Whoa IDE uses [lazy.nvim](https://github.com/folke/lazy.nvim) for plugin management.
+
+### Common Commands
+- `:Lazy` - Open plugin manager
+- `:Lazy update` - Update all plugins
+- `:Lazy clean` - Remove unused plugins
+- `:Lazy profile` - Show startup profiling
+
+## ⌨️ Key Mappings
+
+### General
+- `<leader>` - Space (main leader key)
+- `<leader>e` - Toggle file explorer
+- `<leader>ff` - Find files
+- `<leader>fg` - Live grep
+- `<leader>fb` - Find buffers
+
+### Code
+- `<leader>ca` - Code actions
+- `<leader>cf` - Format code
+- `<leader>cr` - Rename symbol
+- `gd` - Go to definition
+- `gr` - Go to references
+
+### Git
+- `<leader>gg` - Open Git interface
+- `<leader>gb` - Git blame
+- `<leader>gd` - Git diff
+
+*For complete keybinding reference, press `<leader>` in Neovim to see Which-Key popup.*
+
+## 🏗️ Development
+
+### Adding New Plugins
+1. Create a new file in the appropriate `lua/plugins/` subdirectory
+2. Follow the lazy.nvim plugin specification
+3. Restart Neovim to load the new plugin
+
+### Custom Commands
+Add custom commands in `lua/whoa/commands.lua`.
+
+### Themes
+Themes are configured in `lua/plugins/ui/themes.lua`. To add a new theme:
+1. Add the theme plugin
+2. Configure it in the themes file
+3. Update the theme selection logic
+
+## 🐛 Troubleshooting
+
+### Common Issues
+1. **Slow startup**: Run `:Lazy profile` to identify slow plugins
+2. **LSP not working**: Check `:LspInfo` and ensure language servers are installed
+3. **Icons not showing**: Install a Nerd Font and set it in your terminal
+4. **Telescope errors**: Ensure ripgrep is installed
+
+### Health Checks
+Run `:checkhealth` to diagnose common issues.
+
+### Logs
+Check logs in `user/logs/actions.log` for debugging information.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+### Development Setup
+```bash
+# Clone your fork
+git clone https://github.com/your-username/whoa-ide
+cd whoa-ide
+
+# Create a feature branch
+git checkout -b feature/your-feature-name
+
+# Make changes and test
+# Submit PR
+```
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+## 📧 Contact
+
+- **Email**: [hello@ugolin-olle.com](mailto:hello@ugolin-olle.com)
+- **LinkedIn**: [ugolin-olle](https://linkedin.com/in/ugolin-olle)
+- **GitHub**: [Report Issues](https://github.com/your-username/whoa-ide/issues)
+
+---
+
+<p align="center">
+    <em>Built with ❤️ and Neovim</em>
+</p>

@@ -6,13 +6,13 @@ return {
 
     priority = 1000,
 
-    lazy = false,
+    lazy = true,
   },
   {
     "tiesen243/vercel.nvim",
     name = "Vercel Theme",
     priority = 1000,
-    lazy = false,
+    lazy = false, -- Keep active theme loaded
     config = function()
       require("vercel").setup {
         theme = vim.o.background == "dark" and "dark" or "light",
@@ -36,7 +36,7 @@ return {
 
     name = "GitHub Theme",
 
-    lazy = false,
+    lazy = true,
 
     priority = 1000,
 
@@ -53,7 +53,7 @@ return {
 
     name = "Solarized Osaka",
 
-    lazy = false,
+    lazy = true,
 
     priority = 1000,
 
@@ -68,7 +68,7 @@ return {
 
     name = "VSCode",
 
-    lazy = false,
+    lazy = true,
 
     priority = 1000,
 
