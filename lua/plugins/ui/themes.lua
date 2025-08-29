@@ -16,7 +16,7 @@ return {
     config = function()
       require("vercel").setup {
         theme = vim.o.background == "dark" and "dark" or "light",
-        transparent = false,
+        transparent = true,
         italics = {
           comments = true,
           keywords = true,
