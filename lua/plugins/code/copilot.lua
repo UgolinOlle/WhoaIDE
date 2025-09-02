@@ -1,28 +1,29 @@
 return {
-    "zbirenbaum/copilot.lua",
-    name = "Copilot",
-    event = "InsertEnter",
+  "zbirenbaum/copilot.lua",
+  name = "Copilot",
+  event = "InsertEnter",
+  enabled = false,
 
-    -- Plugin options
-    opts = {
-        suggestion = {
-            enabled = true,
-            auto_trigger = true,
-            keymap = {
-                accept = "<TAB>",
-                accept_line = "<S-TAB>",
-                next = "<C-]>",
-                prev = "<C-[>",
-                dismiss = "<ESC>"
-            }
-        },
-        panel = {
-            enabled = false
-        }
+  -- Plugin options
+  opts = {
+    suggestion = {
+      enabled = true,
+      auto_trigger = true,
+      keymap = {
+        accept = "<TAB>",
+        accept_line = "<S-TAB>",
+        next = "<C-]>",
+        prev = "<C-[>",
+        dismiss = "<ESC>",
+      },
     },
+    panel = {
+      enabled = false,
+    },
+  },
 
-    -- Plugin configuration
-    config = function(_, opts)
-        require("copilot").setup(opts)
-    end
+  -- Plugin configuration
+  config = function(_, opts)
+    require("copilot").setup(opts)
+  end,
 }
